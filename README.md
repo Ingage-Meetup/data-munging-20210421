@@ -16,6 +16,20 @@ In weather.dat.csv you’ll find daily weather data for Morristown, NJ for June 
 
 ### C\#
 
+In Visual Studio, add the data files to the project folder. Ensure the files are included in the project. Right click on each datafile in turn and select Properties. In the Copy to Output Directory property, select Copy Always.
+
+Here's an example of reading in one of the data files and echoing it to the console:
+
+            using var temperatures = new StreamReader("weather.dat.csv");
+
+            while (!temperatures.EndOfStream)
+            {
+                var line = temperatures.ReadLine();
+                Console.WriteLine(line);
+            }
+
+            temperatures.Close();
+
 ### Python
 
 ### Java
