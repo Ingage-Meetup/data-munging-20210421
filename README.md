@@ -22,20 +22,23 @@ In Visual Studio, add the data files to the project folder. Ensure the files are
 
 Here's an example of reading in one of the data files and echoing it to the console:
 
-            using var temperatures = new StreamReader("weather.dat.csv");
+```c#
+    using var temperatures = new StreamReader("weather.dat.csv");
 
-            while (!temperatures.EndOfStream)
-            {
-                var line = temperatures.ReadLine();
-                Console.WriteLine(line);
-            }
+    while (!temperatures.EndOfStream)
+    {
+        var line = temperatures.ReadLine();
+            var columns = line.split(','); // Split line on commas, to get columns
+            // Do stuff with columns array...
+        }
 
-            temperatures.Close();
+    temperatures.Close();
+```
 
 ### JavaScript (NodeJS)
 
 ```javascript
-var fileName = "weather.dat";
+var fileName = "weather.dat.csv";
 var lines = require("fs")
   .readFileSync(fileName, "utf-8") // Read the entire file as a string (not recommended for very large files, but fine here...)
   .split("\n"); // Split the string on carriage returns, resulting in an array with an entry per line
@@ -53,13 +56,13 @@ import java.io.FileReader;
 import java.io.IOException;
 
 ...
-String fileName = "weather.dat";
+String fileName = "weather.dat.csv";
 BufferedReader br = null;
 try {
     br = new BufferedReader(new FileReader(fileName));
     String line = null;
     while (line = br.readLine() != null) {
-        String[] columns = line.split(","); // Split line on whitespace, to get columns
+        String[] columns = line.split(","); // Split line on commas, to get columns
         // Do stuff with columns array...
     }
 } catch (IOException e) {
@@ -72,9 +75,9 @@ try {
 ### Kotlin
 
 ```kotlin
-var fileName = "weather.dat"
+var fileName = "weather.dat.csv"
 File(fileName).forEachLine {
-    var columns = it.split(",") // Split line on whitespace, to get columns
+    var columns = it.split(",") // Split line on commas, to get columns
     // Do stuff with columns array...
 }
 ```
