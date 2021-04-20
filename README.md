@@ -90,6 +90,6 @@ fileName = "weather.dat.csv"
 weatherFile = open(fileName, "r")
 
 for line in weatherFile:
-    columns = line.split(",")
+    columns = line.split(",")  # Split the line on commas, to get columns
     # Do stuff here
 ```
