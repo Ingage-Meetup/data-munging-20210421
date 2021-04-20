@@ -23,7 +23,8 @@ In Visual Studio, add the data files to the project folder. Ensure the files are
 Here's an example of reading in one of the data files and echoing it to the console:
 
 ```c#
-    using var temperatures = new StreamReader("weather.dat.csv");
+    string fileName = "weather.dat.csv";
+    using var temperatures = new StreamReader(fileName);
 
     while (!temperatures.EndOfStream)
     {
@@ -85,7 +86,8 @@ File(fileName).forEachLine {
 ### Python
 
 ```python
-weatherFile = open("weather.dat.csv", "r")
+fileName = "weather.dat.csv"
+weatherFile = open(fileName, "r")
 
 for line in weatherFile:
     columns = line.split(",")
