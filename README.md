@@ -85,5 +85,9 @@ File(fileName).forEachLine {
 ### Python
 
 ```python
-# Need example here
+weatherFile = open("weather.dat.csv", "r")
+
+for line in weatherFile:
+    columns = line.split(",")
+    # Do stuff here
 ```
